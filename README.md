@@ -1,2 +1,3 @@
 # frye.github.io
-My GitHub Pages landing site.
+
+Currently just a redirect to my under construction developer portfolio.
