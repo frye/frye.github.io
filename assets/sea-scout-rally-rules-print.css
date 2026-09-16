@@ -1,0 +1,159 @@
+@page {
+  size: letter;
+  margin: 0.6in;
+
+  @bottom-center {
+    content: "Page " counter(page) " of " counter(pages);
+    font-family: Arial, sans-serif;
+    font-size: 8pt;
+    color: #555;
+  }
+}
+
+@media print {
+  html {
+    font-size: 11pt;
+    scroll-behavior: auto;
+  }
+
+  body.rally-page {
+    margin: 0;
+    min-height: 0;
+    background: #fff;
+    color: #111;
+    font-family: Arial, sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .rally-page::before,
+  .rally-page .nav,
+  .rally-page .footer,
+  .rally-download {
+    display: none;
+  }
+
+  .rally-page #root {
+    position: static;
+  }
+
+  .rally-page .rally-content {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  .rally-content h1 {
+    font-size: 20pt;
+    line-height: 1.2;
+    margin: 0 0 12pt;
+  }
+
+  .rally-content h2 {
+    color: #111;
+    font-size: 14pt;
+    line-height: 1.3;
+    margin: 0 0 9pt;
+  }
+
+  .rally-content h3 {
+    font-size: 11pt;
+    line-height: 1.4;
+    margin: 12pt 0 6pt;
+  }
+
+  .rally-content h1,
+  .rally-content h2,
+  .rally-content h3,
+  .rally-content p:has(+ ul),
+  .rally-content p:has(+ pre),
+  .rally-content p:has(+ .rally-table-scroll) {
+    break-after: avoid;
+  }
+
+  .rally-content p,
+  .rally-content ul,
+  .rally-content pre,
+  .rally-table-scroll {
+    margin: 0 0 8pt;
+    orphans: 3;
+    widows: 3;
+  }
+
+  .rally-content ul {
+    padding-left: 16pt;
+    break-inside: avoid;
+  }
+
+  .rally-content li + li {
+    margin-top: 3pt;
+  }
+
+  .rally-content hr {
+    border: 0;
+    border-top: 0.5pt solid #aaa;
+    margin: 16pt 0;
+    break-after: avoid;
+  }
+
+  .rally-table-scroll {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    break-inside: avoid;
+  }
+
+  .rally-content table {
+    width: 100%;
+    min-width: 0;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 9pt;
+    line-height: 1.35;
+  }
+
+  .rally-content thead {
+    display: table-header-group;
+    background: #eee;
+    color: #111;
+  }
+
+  .rally-content th,
+  .rally-content td {
+    border: 0.5pt solid #aaa;
+    padding: 6pt;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .rally-content tr {
+    break-inside: avoid;
+  }
+
+  .rally-content section[aria-labelledby="divisions"] th:first-child {
+    width: 22%;
+  }
+
+  .rally-content section[aria-labelledby="divisions"] thead th:last-child {
+    width: 23%;
+  }
+
+  .rally-content pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    overflow: visible;
+    border: 0.5pt solid #aaa;
+    border-radius: 0;
+    background: #f5f5f5;
+    padding: 8pt;
+    font-size: 8pt;
+    line-height: 1.5;
+    break-inside: avoid;
+  }
+
+  .rally-content code {
+    font-family: "Courier New", monospace;
+  }
+}
